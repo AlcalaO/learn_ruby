@@ -21,3 +21,7 @@ def repeat (message, count=1)
         return repeated_message.chop
     end
 end
+
+def start_of_word (message, count)
+    return message.split('').first(count).join
+end
