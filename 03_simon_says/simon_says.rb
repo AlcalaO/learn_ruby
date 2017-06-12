@@ -8,16 +8,16 @@ def shout message
     return message.upcase
 end
 
-def repeat (message, times=1)
-    if times == 1
+def repeat (message, count=1)
+    if count == 1
         repeated_message = message + ' ' + message
         return repeated_message
     else
-        repeated_message = message
-        for i in 1..times
-            repeated_message.concat(' ' + message)
+        repeated_message = '' 
+        for i in 1..count
+            repeated_message.concat(message + ' ')
         end
 
-        return repeated_message
+        return repeated_message.chop
     end
 end
