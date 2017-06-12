@@ -1,5 +1,4 @@
 #write your code here
-
 def add (n1, n2)
     return n1 + n2
 end
@@ -33,6 +32,14 @@ def power (n, pow)
 end
 
 def factorial n
-    for i in 0..n
-        
+    if n == 0 || n == 1
+        n1 = 1
+        return n1
+    else
+        n1 = 0
+        for value in 1..n
+            n1 += value
+        end
+        return n1
+    end
 end
