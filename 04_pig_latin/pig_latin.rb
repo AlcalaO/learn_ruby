@@ -9,7 +9,7 @@ def translate (message)
   case arr_message.size
   when 1
     new_message.concat(translate_word(arr_message.first))
-  when
+  when 
     arr_message.each do |word|
       new_message.concat(translate_word(word))
     end
