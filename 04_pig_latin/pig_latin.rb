@@ -21,5 +21,4 @@ end
 
 def find_n_consonants (word)
   vowels = 'aeiou'.split('')
-  
 end
