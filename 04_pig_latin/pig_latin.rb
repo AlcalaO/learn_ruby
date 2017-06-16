@@ -9,13 +9,14 @@ def translate (message)
   case arr_message.size
   when 1
     new_message.concat(translate_word(arr_message.first))
-  when 
+  else
     arr_message.each do |word|
-      new_message.concat(translate_word(word))
+      new_message.concat(translate_word(word) + ' ')
     end
+    new_message.rstrip
   end
 
-  return new_message
+  return new_message.rstrip
     
 end
 
@@ -31,13 +32,33 @@ def translate_word word
     return new_word
   when 1
     arr_word.push(word.split('').first)
-    arr_word.push(sound)
-    arr_word.delete_at(0)
-    return arr_word.join
+
+    if arr_word[1] == 'u'
+      arr_word.push(arr_word[1])
+      arr_word.shift(2)
+      arr_word.push(sound)
+      return arr_word.join
+    else
+      arr_word.shift(1)
+      arr_word.push(sound)
+      return arr_word.join
+    end
   when 2
     arr_word.push(word.split('').first(2))
+    if arr_word[2] == 'u'
+      arr_word.push(arr_word[2])
+      arr_word.push(sound)
+      arr_word.shift(3)
+      return arr_word.join
+    else
+      arr_word.push(sound)
+      arr_word.shift(2)
+      return arr_word.join
+    end
+  when 3
+    arr_word.push(word.split('').first(3))
     arr_word.push(sound)
-    arr_word.shift(2)
+    arr_word.shift(3)
     return arr_word.join
   end
 end
